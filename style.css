@@ -1,9 +1,15 @@
 form {
-	border: 1px solid black;
-	padding: 50px 50px;
-	width: 50%;
-	margin: auto;
-	background: gray;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#display {
+	width: 75%;
+	box-sizing: border-box;
+	border: 2px solid black;
+	border-radius: 4px;
+	font-size: 16px;
 }
 
 #title {
@@ -13,20 +19,18 @@ form {
 	padding: 20px;
 }
 
-#container {
+.numbers {
+	margin:auto;
 	text-align: center;
-}
-
-#info {
-	text-align: center;
-}
-
-.display {
-	background-color: darkgray;
-	text-align: left;
+	padding: 5px 5px;
 	width: 50%;
+}
+
+.container {
+	display: table;
 	border: 1px solid black;
-	padding:5px 5px;
+	padding: 30px 50px;
+	width: 75%;
 	margin: auto;
-	color: silver;
+	background: gray;
 }

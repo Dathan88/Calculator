@@ -1,6 +1,5 @@
-let btn = document.querySelectorAll('button');
-		btn.forEach((button) => {
-		button.addEventListener('click', (e) => {
-			 console.log(e.target);
-		});
-	});
+function sum() {
+	document.getElementById('display').value = 
+			document.getElementById('btn').value;
+}
+

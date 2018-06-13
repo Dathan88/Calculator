@@ -1,4 +1,32 @@
-p {
-	color: blue;
+form {
+	border: 1px solid black;
+	padding: 50px 50px;
+	width: 50%;
+	margin: auto;
+	background: gray;
 }
 
+#title {
+	text-align: center;
+	width: 50%;
+	margin: auto;
+	padding: 20px;
+}
+
+#container {
+	text-align: center;
+}
+
+#info {
+	text-align: center;
+}
+
+.display {
+	background-color: darkgray;
+	text-align: left;
+	width: 50%;
+	border: 1px solid black;
+	padding:5px 5px;
+	margin: auto;
+	color: silver;
+}

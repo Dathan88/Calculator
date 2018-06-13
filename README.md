@@ -1,6 +1,6 @@
 # Basic Calculator
 
-## No instiallation need. Just open html file.
+## No installation need. Just open html file.
 
 ### Requirements
 *None.

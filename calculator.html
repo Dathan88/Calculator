@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="calculator.js"></script>
 	<link rel="stylesheet" href="style.css">
 	<title>Calculator</title>
 </head>
@@ -11,25 +10,25 @@
 
 <div class="container">
 	<form name="myForm">
-		<input type="input" value="" id="display">
+		<input type="text" id="display">
 					<br><br>
 		<div class="numbers">		
-			<button type="submit" onclick="submit()">1</button>
-			<button type="submit" onclick="submit()">2</button>
-			<button type="submit" onclick="submit()">3</button>
-			<button type="submit" onclick="submit()">4</button>
-			<button type="submit" onclick="submit()">5</button>
+			<button id="btnSubmit" type="submit" value="1">1</button>
+			<button id="btnSubmit" type="submit" value="2">2</button>
+			<button id="btnSubmit" type="submit" value="3">3</button>
+			<button id="btnSubmit" type="submit" value="4">4</button>
+			<button id="btnSubmit" type="submit" value="5">5</button>
 					<br><br>
-			<button type="submit" onclick="submit()">6</button>
-			<button type="submit" onclick="submit()">7</button>
-			<button type="submit" onclick="submit()">8</button>
-			<button type="submit" onclick="submit()">9</button>
-			<button type="submit" onclick="submit()">0</button>
+			<button id="btnSubmit" type="submit" value="6">6</button>
+			<button id="btnSubmit" type="submit" value="7">7</button>
+			<button id="btnSubmit" type="submit" value="8">8</button>
+			<button id="btnSubmit" type="submit" value="9">9</button>
+			<button id="btnSubmit" type="submit" value="0">0</button>
 					<br><br>
-			<button type="submit" onclick="submit()">+</button>
-			<button type="submit" onclick="submit()">-</button>
-			<button type="submit" onclick="submit()">*</button>
-			<button type="submit" onclick="submit()">/</button>
+			<button id="btnSubmit" type="submit" value="+">+</button>
+			<button id="btnSubmit" type="submit" value="-">-</button>
+			<button id="btnSubmit" type="submit" value="*">*</button>
+			<button id="btnSubmit" type="submit" value="/">/</button>
 					<br><br>
 			<input type="reset">
 			<input type="submit" value="Enter">
@@ -38,4 +37,6 @@
 </div>
 
 </body>
+
+<script src="calculator.js"></script>
 </html>

@@ -55,11 +55,31 @@ function operate() {
 	}
 }
 
-function submit() {
 
+
+/*function submit() {
+	document.getElementsByClassName('display'[]).value = button.value;
 }
+*/
 
-console.log(operate());
 
-console.log(submit());
 
+//console.log(operate());
+//console.log(submit());
+
+const btn = document.querySelectorAll('button');
+const display = document.getElementById('display');
+
+btn.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    document.getElementById("display").value = button.value;
+  });
+});
+
+console.log();
+
+
+/*<form name="calc" id="calculator">
+  <input type="text" name="input">
+  <input type="button" value="Set Value" onclick="calc.input.value='Set Value'">
+</form>*/

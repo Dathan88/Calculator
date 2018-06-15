@@ -5,11 +5,12 @@ form {
 }
 
 #display {
-	width: 75%;
+	width: 50%;
 	box-sizing: border-box;
 	border: 2px solid black;
 	border-radius: 4px;
 	font-size: 16px;
+	float: inherit;
 }
 
 #title {
@@ -30,7 +31,7 @@ form {
 	display: table;
 	border: 1px solid black;
 	padding: 30px 50px;
-	width: 75%;
+	width: 50%;
 	margin: auto;
 	background: gray;
 }

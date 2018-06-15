@@ -5,33 +5,34 @@
 	<link rel="stylesheet" href="style.css">
 	<title>Calculator</title>
 </head>
+
 <body>
 <h1 id="title">My First Calculator!!</h1>
 
 <div class="container">
 	<form name="myForm">
 		<input type="input" value="" id="display">
-		<input type='submit'>
 					<br><br>
 		<div class="numbers">		
-			<input type="submit" value="1" onclick="sum()" id="btn">
-			<input type="submit" value="2" onclick="sum()" id="btn">
-			<input type="submit" value="3" onclick="sum()" id="btn">
-			<input type="submit" value="4" onclick="sum()" id="btn">
-			<input type="submit" value="5" onclick="sum()" id="btn">
+			<button type="submit" onclick="submit()">1</button>
+			<button type="submit" onclick="submit()">2</button>
+			<button type="submit" onclick="submit()">3</button>
+			<button type="submit" onclick="submit()">4</button>
+			<button type="submit" onclick="submit()">5</button>
 					<br><br>
-			<input type="submit" value="6" onclick="sum()" id="btn">
-			<input type="submit" value="7" onclick="sum()" id="btn">
-			<input type="submit" value="8" onclick="sum()" id="btn">
-			<input type="submit" value="9" onclick="sum()" id="btn">
-			<input type="submit" value="0" onclick="sum()" id="btn">
+			<button type="submit" onclick="submit()">6</button>
+			<button type="submit" onclick="submit()">7</button>
+			<button type="submit" onclick="submit()">8</button>
+			<button type="submit" onclick="submit()">9</button>
+			<button type="submit" onclick="submit()">0</button>
 					<br><br>
-			<input type="submit" value="+" onclick="sum()" id="btn">
-			<input type="submit" value="-" onclick="sum()" id="btn">
-			<input type="submit" value="*" onclick="sum()" id="btn">
-			<input type="submit" value="/" onclick="sum()" id="btn">
+			<button type="submit" onclick="submit()">+</button>
+			<button type="submit" onclick="submit()">-</button>
+			<button type="submit" onclick="submit()">*</button>
+			<button type="submit" onclick="submit()">/</button>
 					<br><br>
-			<input type="reset" name="Reset">
+			<input type="reset">
+			<input type="submit" value="Enter">
 		</form>
 	</div>
 </div>

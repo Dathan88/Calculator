@@ -30,13 +30,13 @@ function divide(numbers) {
 	return sum;
 }
 
-function operate() {
+function randomMath() {
 	let a = Math.floor(Math.random() * 100);
 	let b = Math.floor(Math.random() * 100);
-	let op = ['+', '-', '*', '/'];
-	let sign = op[Math.floor(op.length * Math.random())];
+	let sign = ['+', '-', '*', '/'];
+	let randomOp = op[Math.floor(op.length * Math.random())];
 	let final = a + sign + b;
-	console.log(a, b, sign, final);
+	console.log(a, b, sign, final); // Function used to test different operators and accuracy
 
 	if(sign === '+') {
 		return add([a, b]);
@@ -46,10 +46,10 @@ function operate() {
 		return multiply([a, b]);
 	} else if (sign === '/') {
 		return divide([a, b]);
-	} else {
-		return "Is not a number";
 	}
 }
+
+//------ attachments of buttons to calculator and appearing in display
 
 const btn = document.querySelectorAll('button');
 const display = document.getElementById('display');
@@ -70,5 +70,20 @@ function erase() {
 	}
 }
 
+function answers() {
+	let problem = display.value;
 
-console.log(erase());
+	let sign = ['+', '-', '*', '/'];
+
+	if(sign === '+') {
+		return add([a, b]);
+	} else if(sign === '-') {
+		return subtract([a, -b]);
+	} else if(sign === '*') {
+		return multiply([a, b]);
+	} else if (sign === '/') {
+		return divide([a, b]);
+	}
+}
+
+console.log();

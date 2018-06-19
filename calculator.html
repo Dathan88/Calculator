@@ -4,39 +4,37 @@
 	<link rel="stylesheet" href="style.css">
 	<title>Calculator</title>
 </head>
-
 <body>
 <h1 id="title">My First Calculator!!</h1>
 
 <div class="container">
-	<form name="myForm">
-		<input type="text" id="display">
+	<form name="myForm" id="myForm" autocomplete="off">
+		<input type="text" value="" id="display">
 					<br><br>
 		<div class="numbers">		
-			<button id="btnSubmit" type="submit" value="1">1</button>
-			<button id="btnSubmit" type="submit" value="2">2</button>
-			<button id="btnSubmit" type="submit" value="3">3</button>
-			<button id="btnSubmit" type="submit" value="4">4</button>
-			<button id="btnSubmit" type="submit" value="5">5</button>
+			<button value="1">1</button>
+			<button value="2">2</button>
+			<button value="3">3</button>
+			<button value="4">4</button>
+			<button value="5">5</button>
 					<br><br>
-			<button id="btnSubmit" type="submit" value="6">6</button>
-			<button id="btnSubmit" type="submit" value="7">7</button>
-			<button id="btnSubmit" type="submit" value="8">8</button>
-			<button id="btnSubmit" type="submit" value="9">9</button>
-			<button id="btnSubmit" type="submit" value="0">0</button>
+			<button value="6">6</button>
+			<button value="7">7</button>
+			<button value="8">8</button>
+			<button value="9">9</button>
+			<button value="0">0</button>
 					<br><br>
-			<button id="btnSubmit" type="submit" value="+">+</button>
-			<button id="btnSubmit" type="submit" value="-">-</button>
-			<button id="btnSubmit" type="submit" value="*">*</button>
-			<button id="btnSubmit" type="submit" value="/">/</button>
+			<button value="+">+</button>
+			<button value="-">-</button>
+			<button value="*">*</button>
+			<button value="/">/</button>
 					<br><br>
-			<input type="reset">
+			<input type="reset" value="Reset" onclick="erase()">
 			<input type="submit" value="Enter">
 		</form>
 	</div>
 </div>
 
 </body>
-
 <script src="calculator.js"></script>
 </html>

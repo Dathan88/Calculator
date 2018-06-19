@@ -36,50 +36,38 @@ function operate() {
 	let op = ['+', '-', '*', '/'];
 	let sign = op[Math.floor(op.length * Math.random())];
 	let final = a + sign + b;
-
 	console.log(a, b, sign, final);
 
 	if(sign === '+') {
 		return add([a, b]);
-		console.log();
 	} else if(sign === '-') {
 		return subtract([a, -b]);
-		console.log();
 	} else if(sign === '*') {
 		return multiply([a, b]);
-		console.log();
-	} else if (sign === '/'){
+	} else if (sign === '/') {
 		return divide([a, b]);
 	} else {
 		return "Is not a number";
 	}
 }
 
-
-
-/*function submit() {
-	document.getElementsByClassName('display'[]).value = button.value;
-}
-*/
-
-
-
-//console.log(operate());
-//console.log(submit());
-
 const btn = document.querySelectorAll('button');
-const display = document.getElementById('display');
+const display = document.querySelector('#display');
+let displayArray = [];
 
 btn.forEach((button) => {
   button.addEventListener('click', (e) => {
-    document.getElementById("display").value = button.value;
+   displayArray.push(e.target.value);
+	display.value = displayArray.join('');
   });
 });
 
-console.log();
+function erase() {
+	for(i = 0; i < displayArray.length; i--) {
+	displayArray.pop([i]);
+	document.getElementById('display').innerHTML = displayArray;
+	};
+}
 
-
-/*<form name="calc" id="calculator">
-  <input type="text" name="input">
-  <input type="button" value="Set Value" onclick="calc.input.value='Set Value'">
-</form>*/
+console.log(myForm.input);
+console.log(erase());

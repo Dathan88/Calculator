@@ -52,7 +52,7 @@ function operate() {
 }
 
 const btn = document.querySelectorAll('button');
-const display = document.querySelector('#display');
+const display = document.getElementById('display');
 let displayArray = [];
 
 btn.forEach((button) => {
@@ -63,11 +63,12 @@ btn.forEach((button) => {
 });
 
 function erase() {
-	for(i = 0; i < displayArray.length; i--) {
-	displayArray.pop([i]);
-	document.getElementById('display').innerHTML = displayArray;
-	};
+	let length = displayArray.length;
+	for(i = length; i > 0; i--) {
+		displayArray.pop([i]);
+		document.getElementById('display').value = displayArray;
+	}
 }
 
-console.log(myForm.input);
+
 console.log(erase());

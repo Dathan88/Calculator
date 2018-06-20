@@ -4,6 +4,15 @@ form {
 	vertical-align: middle;
 }
 
+.container {
+	display: table;
+	border: 1px solid black;
+	padding: 40px;
+	width: 30%;
+	margin: auto;
+	background: gray;
+}
+
 #display {
 	width: 60%;
 	box-sizing: border-box;
@@ -11,6 +20,7 @@ form {
 	border-radius: 4px;
 	font-size: 16px;
 	float: inherit;
+	text-align: right;
 }
 
 #title {
@@ -26,11 +36,4 @@ form {
 	width: 50%;
 }
 
-.container {
-	display: table;
-	border: 1px solid black;
-	padding: 30px 50px;
-	width: 45%;
-	margin: auto;
-	background: gray;
-}
+

@@ -55,24 +55,28 @@ function randomMath() {
 const btn = document.querySelectorAll('button');
 const display = document.getElementById('display');
 let displayArray = [];
+const subDisplay = document.getElementById('subDisplay');
 
 btn.forEach((button) => {
   button.addEventListener('click', (e) => {
-   displayArray.push(e.target.value);	// each click puts button value into display 
-	display.value = displayArray.join('');
+   displayArray.push(e.target.value);
+   	if(e.target.value === '+', '-', '*', '/') {
+   		
+   	} else if(e.target.value === "=") {
+   		
+   	}
   });
 });
 
+function xtraDisplay() {
+	if(btn.value === '+' ||'-'||'*'||'/') {
 
-function operate(e) {
-	let sign = event.target.value;
-	let firstNum = display.value += sign;
-
-
-	console.log(firstNum);
-
+	}
 }
 
+function operate(e) {
+
+}
 
 function erase() {
 	let length = displayArray.length;
@@ -83,4 +87,12 @@ function erase() {
 	}
 }
 
-console.log();
+/*
+ btn.forEach((button) => {
+  button.addEventListener('click', (e) => {
+   displayArray.push(e.target.value);
+   displayArray.push(e.target.value);	// each click puts button value into display 
+	display.value = displayArray.join('');
+  });
+});
+*/

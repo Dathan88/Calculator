@@ -1,16 +1,30 @@
+#title {
+	text-align: center;
+	width: 50%;
+	margin: auto;
+	padding: 20px;
+}
+
+.container {
+	display: table;
+	border: 1px solid black;
+	padding: 20px;
+	width: 30%;
+	margin: auto;
+	background: #383838;
+	position: static;
+}
+
 form {
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
 }
 
-.container {
-	display: table;
-	border: 1px solid black;
-	padding: 40px;
-	width: 30%;
+#subDisplay {
+	padding: 5px;
+	color: white;
 	margin: auto;
-	background: gray;
 }
 
 #display {
@@ -19,15 +33,7 @@ form {
 	border: 2px solid black;
 	border-radius: 4px;
 	font-size: 16px;
-	float: inherit;
 	text-align: right;
-}
-
-#title {
-	text-align: center;
-	width: 50%;
-	margin: auto;
-	padding: 20px;
 }
 
 .numbers {

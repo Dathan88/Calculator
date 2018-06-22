@@ -52,31 +52,26 @@ function randomMath() {
 //-- above -- functions that process math problems and find correct values
 //-- below -- functions/variables that combine the above with web calculator app
 
-const btn = document.querySelectorAll('button');
 const display = document.getElementById('display');
-let displayArray = [];
 const subDisplay = document.getElementById('subDisplay');
+let displayArray = [];
 
-btn.forEach((button) => {
-  button.addEventListener('click', (e) => {
-   displayArray.push(e.target.value);
-   	if(e.target.value === '+', '-', '*', '/') {
-   		
-   	} else if(e.target.value === "=") {
-   		
-   	}
-  });
-});
+function numbers(e) {
+	let number = displayArray.push(event.target.value);
+	display.value = displayArray.join('');
+	subDisplay.innerHTML = displayArray.join('');
 
-function xtraDisplay() {
-	if(btn.value === '+' ||'-'||'*'||'/') {
-
-	}
+	console.log(number);
 }
 
-function operate(e) {
+function operators(e) {
+	let sign = event.target.value;
+	display.value = displayArray.join(sign);
 
+	console.log();
+	console.log(display.value);
 }
+
 
 function erase() {
 	let length = displayArray.length;
@@ -85,14 +80,6 @@ function erase() {
 		displayArray.pop([i]);
 		display.value = displayArray;
 	}
-}
+};
 
-/*
- btn.forEach((button) => {
-  button.addEventListener('click', (e) => {
-   displayArray.push(e.target.value);
-   displayArray.push(e.target.value);	// each click puts button value into display 
-	display.value = displayArray.join('');
-  });
-});
-*/
+

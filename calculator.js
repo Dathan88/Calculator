@@ -54,32 +54,85 @@ function randomMath() {
 
 const display = document.getElementById('display');
 const subDisplay = document.getElementById('subDisplay');
+const myOp = document.getElementById('signs');
+const myNumber = document.getElementById('number');
+let subArray = [];
 let displayArray = [];
 
+
 function numbers(e) {
-	let number = displayArray.push(event.target.value);
-	display.value = displayArray.join('');
-	subDisplay.innerHTML = displayArray.join('');
+	let number = event.target.value;
+		displayArray.push(number);
+		display.value = displayArray.join('');
 
-	console.log(number);
-}
-
-function operators(e) {
-	let sign = event.target.value;
-	display.value = displayArray.join(sign);
-
-	console.log();
 	console.log(display.value);
 }
 
+function operators(e) {
+	subArray.push(display.value);
+	let sign = event.target.value;
+		subArray.push(sign);
+
+	let a = subArray[0];
+	let b = subArray[2];
+	let final = a + sign + b;
+		
+	if(sign === '=') {
+		
+	}
+
+	if(sign === '+') {
+			return add([a, b]);
+		} else if(sign === '-') {
+			return subtract([a, -b]);
+		} else if(sign === '*') {
+			return multiply([a, b]);
+		} else if (sign === '/') {
+			return divide([a, b]);
+		}
+
+	subDisplay.innerHTML = subArray.join(' ');
+		displayArray = [''];
+
+	console.log(subArray);
+	console.log(subDisplay);
+}
+
+
+/*
+function equals() {
+	subArray.push("=");
+		subDisplay.innerHTML = subArray.join(' ');
+
+	if(sign === '+') {
+		return add([a, b]);
+	} else if(sign === '-') {
+		return subtract([a, -b]);
+	} else if(sign === '*') {
+		return multiply([a, b]);
+	} else if (sign === '/') {
+		return divide([a, b]);
+	}
+console.log(subArray);
+}
+*/
 
 function erase() {
 	let length = displayArray.length;
-
-	for(i = length; i > 0; i--) {  	// permanently resets display
+	
+	for(i = length; i > 0; i--) {  			// permanently resets display
 		displayArray.pop([i]);
 		display.value = displayArray;
 	}
 };
 
 
+
+/*
+ btn.forEach((button) => {
+  button.addEventListener('click', (e) => {
+   displayArray.push(e.target.value);	// each click puts button value into display 
+	display.value = displayArray.join('');
+  });
+});
+*/

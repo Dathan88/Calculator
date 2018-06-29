@@ -36,7 +36,7 @@ form {
 	text-align: right;
 }
 
-.keyboard {
+#numberPad {
 	margin:auto;
 	padding: 5px 5px;
 	width: 50%;

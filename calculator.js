@@ -2,14 +2,15 @@ const display = document.getElementById('display');
 const subDisplay = document.getElementById('subDisplay');
 const myOp = document.getElementById('signs');
 const myNumber = document.getElementById('number');
-let topDisplay = [];
 let mainDisplay = [];
-
+let topDisplay = [];
+	topDisplay.forEach(function (value, i) {
+		console.log('%d: %s', i, value);
+	});
 
 function myNumbers(a) {
 	let number = event.target.value;
 		mainDisplay.push(number);
-
 		display.value = mainDisplay.join('');
 
 	console.log(display.value);
@@ -17,11 +18,9 @@ function myNumbers(a) {
 
 function operators(b) {
 	topDisplay.push(display.value);
-
 	let op = event.target.value;
 		topDisplay.push(op);
 		subDisplay.innerHTML = topDisplay.join(' ');
-
 	mainDisplay = [''];
 
 	console.log(mainDisplay);
@@ -30,8 +29,9 @@ function operators(b) {
 
 function equals(c) {
 	topDisplay.push(display.value);
-	topDisplay.push(' = ')
-	subDisplay.innerHTML = topDisplay.join(' ');
+		topDisplay.push(' = ');
+		subDisplay.innerHTML = topDisplay.join(' ');
+		mainDisplay = [''];
 
 	let a = parseInt(topDisplay[0]);
 	let sign = topDisplay[1];
@@ -51,11 +51,10 @@ function equals(c) {
 		} else if (sign === '/') {
 			return divide([a, b]);
 		}
-	
 	};
-
 	answer(a, b);
 	console.log(topDisplay);
+	console.log(subDisplay);
 };
 
 
@@ -144,5 +143,5 @@ function divide(numbers) {
 	console.log(sum);
 	return sum;
 }
-randomMath();
+
 console.log();

@@ -1,103 +1,89 @@
 const display = document.getElementById('display');
 const subDisplay = document.getElementById('subDisplay');
-const myNumber = document.getElementById('number');
 const myOp = document.getElementById('signs');
-let clicks = 0;
-	myOp.addEventListener('click', function(e) { clicks += 1; });
-let num0, num1, sign, equation;
-let mainDisplay = [];
+const myNumber = document.getElementById('number');
+let x;
+let signCount = 0;
 let topDisplay = [];
-let myProblem = {
-	add: {num0, sign, num1},
-	subtract: {num0, sign, num1},
-	multiply: {num0, sign, num1},
-	divide: {num0, sign, num1}
-	};
-
-function Equation(num0, sign, num1) {
-	this.num0 = num0;
-	this.sign = sign;
-	this.num1 = num1;
-	equation = num0 + sign + num1;
-	console.log(num0, sign, num1);
-	console.log(equation);
-	console.log(myProblem.add);
-	switch(sign) {
-		case "+":
-			Object.defineProperties(myProblem, {add: {num0, sign, num1}});
-			console.log(myProblem.add);
-			break;
-		case "-":
-			myProblem.subtract = equation;
-			console.log(equation);
-			break;
-		case "*":
-			myProblem.multiply = equation;
-			console.log(equation);
-			break;
-		case "/":
-			myProblem.divide = equation;
-			console.log(equation);
-			break;
-		default:
-			display.innerHtml = "Error";
-	}
-}
+let mainDisplay = [];
 
 function myNumbers(a) {
 	let number = event.target.value;
-		mainDisplay.push(number);								// called when number buttons are pressed
+		mainDisplay.push(number);
 		display.value = mainDisplay.join('');
+
 	console.log(display.value);
-};
+}
 
-function operators(b) {											// called when sign buttons are pressed
+function operators(b) {
 	let op = event.target.value;
-	topDisplay.push(display.value);
-		topDisplay.push(op);
-		subDisplay.innerHTML = topDisplay.join(' ');
-		mainDisplay = [''];
-	if(clicks === 0) {
-		num0 = parseInt(display.value);
-		sign = op;
-		return Equation(num0, sign)
-	};
-	console.log(clicks);
-};
-
-function equals(c) {
-	topDisplay.push(display.value);
-	topDisplay.push('=');									// called when equals button is pressed
-		subDisplay.innerHTML = topDisplay.join(' ');
-		mainDisplay = [''];
-	num1 = parseInt(display.value);
-	console.log(myProblem.add);
-	console.log(num0, sign, num1);
-	return Equation(num0, sign, num1);
-	//let a = parseInt(topDisplay[0]);
-	//let op = topDisplay[1];
-	//let b = parseInt(topDisplay[2]);
-	//let problem = a + " " + op + " " + b + " =";
-/*
-	function answer(num0, num1) {
-		if(sign === '+') {
-			return add([num0, num1]);
-		} else if(sign === '-') {
-			return subtract([num0, -num1]);
-		} else if(sign === '*') {
-			return multiply([num0, num1]);
-		} else if (sign === '/') {
-			return divide([num0, num1]);
+	if(op !== "=") {
+		signCount += 1;
+	}
+		if(op === "=") {
+			topDisplay.push(display.value);
+			subDisplay.innerHTML = topDisplay.join(' ') + " =";
+			equals();
+		} else if(signCount <= 1) {
+			topDisplay.push(display.value);
+			topDisplay.push(op);
+			subDisplay.innerHTML = topDisplay.join(' ');
+		} else if(signCount >= 2) {
+			topDisplay.push(display.value);
+			topDisplay.push(op);
+			subDisplay.innerHTML = topDisplay.join(' ');
 		}
-	};
-*/
-	//answer(num0, num1);
+	console.log(signCount);
+	mainDisplay = [''];
+}
+
+function equals() {									//called from operators function when "=" button pressed
+		let i, a, b, c;									//no for...in loops. Stop asking;
+	answer:
+	for (i = 0; i < topDisplay.length; i++) {
+		if(i > signCount) {
+			break answer;
+		} else {
+		switch(topDisplay[i]) {
+			case "*":
+				a = parseInt(topDisplay[i - 1]);
+				b = parseInt(topDisplay[i + 1]);
+				
+					console.log(a, b);
+				multiply([a, b]);
+			case "/":
+				a = parseInt(topDisplay[i - 1]);
+				b = parseInt(topDisplay[i + 1]);
+		
+					console.log(a, b);
+				divide([a, b]);
+			case "+":
+				a = parseInt(topDisplay[i - 1]);
+				b = parseInt(topDisplay[i + 1]);
+					console.log(a, b);
+				add([a, b]);
+				topDisplay.splice(i - 1, 3);
+			case "-":
+				a = parseInt(topDisplay[i - 1]);
+				b = parseInt(topDisplay[i + 1]);
+		
+					console.log(a, b);
+				subtract([a, b]);
+			default:
+				"Error"
+				break;
+			}
+		}
+		console.log(topDisplay[i]);
+	}
+	console.log(topDisplay);
+	console.log(signCount);
 };
 
 function erase() {
 	let length = mainDisplay.length;
 	
-	for(i = length; i > 0; i--) {  							// permanently resets display
+	for(i = length; i > 0; i--) {  	// permanently resets display
 		mainDisplay.pop([i]);
 		topDisplay = [];
 		display.value = mainDisplay;
@@ -105,22 +91,23 @@ function erase() {
 	}
 };
 
-function randomMath() {
-	let a = Math.floor(Math.random() * 100);				// Function used to test different operators and accuracy
+function randomMath() {									// Function used to test different operators and accuracy
+	let length = mainDisplay.length;
+	for(i = length; i > 0; i--) {  	
+		mainDisplay.pop([i]);
+		topDisplay = [];								// permanently resets display
+		display.value = mainDisplay;
+		subDisplay.innerHTML = "Hello again!";
+	}
+
+	let a = Math.floor(Math.random() * 100);
 	let b = Math.floor(Math.random() * 100);
 	let op = ['+', '-', '*', '/'];
 	let randomOp = op[Math.floor(op.length * Math.random())];
-	let final = a + randomOp + b;			
-		subDisplay.innerHTML = a + " " + randomOp + " " + b;
+	let final = a + randomOp + b;
 
-	let length = mainDisplay.length;
-		for(i = length; i > 0; i--) {  							// permanently resets display
-			mainDisplay.pop([i]);
-			topDisplay = [];
-			display.value = mainDisplay;
-			subDisplay.innerHTML = "Hello again!";
-		}
-	
+	subDisplay.innerHTML = a + " " + randomOp + " " + b;
+
 	if(randomOp === '+') {
 		return add([a, b]);
 	} else if(randomOp === '-') {
@@ -130,56 +117,61 @@ function randomMath() {
 	} else if (randomOp === '/') {
 		return divide([a, b]);
 	}
-};
+}
 
 function add(numbers) {
-	let sum = 0;
+	x = 0;
 	for (i = 0; i < numbers.length; i++) {
-		sum += numbers[i];
+		x += numbers[i];
 	};
-	mainDisplay.push(sum);
-	display.value = mainDisplay.join('');
-	console.log(sum);
-	return sum;
-};
+	console.log(x);
+	return x;
+}
 
 function subtract(numbers) {
-	let sum = 0;
+	x = 0;
 	for (i = 0; i < numbers.length; i++) {
-		sum += numbers[i];
+		x += numbers[i];
 	};
-	mainDisplay.push(sum);
-	display.value = mainDisplay.join('');
-	console.log(sum);
-	return sum;
-};
+	console.log(x);
+	return x;
+}
 
 function multiply(numbers) {
-	let sum = 1;
+	x = 1;
 	for (i = 0; i < numbers.length; i++) {
-		sum *= numbers[i];
+		x *= numbers[i];
 	};
-	mainDisplay.push(sum);
-	display.value = mainDisplay.join('');
-	console.log(sum);
-	return sum;
-};
+	console.log(x);
+	return x;
+}
 
 function divide(numbers) {
-	let sum = 1;
+	x = 1;
 	for (i = 0; i < numbers.length; i++) {
-		sum /= numbers[i];
+		x /= numbers[i];
 	};
-	mainDisplay.push(sum);
-	display.value = mainDisplay.join('');
-	console.log(sum);
-	return sum;
-};
+	console.log(x);
+	return x;
+}
 
 console.log();
 
-//
-
 /*
+let sign = {
+			'+': function(num1, num2) {return num1 + num2},
+			'-': function(num1, num2) {return num1 + num2},
+			'*': function(num1, num2) {return num1 + num2},
+			'/': function(num1, num2) {return num1 + num2}
+		};
+
+
+let sign = function() {
+			for(i = 1; i < topDisplay.length; i++) {
+
+			}
+		}
+
+
 
 */

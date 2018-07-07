@@ -16,70 +16,73 @@ function myNumbers(a) {
 
 function operators(b) {
 	let op = event.target.value;
-	if(op !== "=") {
-		signCount += 1;
-	}
-		if(op === "=") {
-			topDisplay.push(display.value);
-			subDisplay.innerHTML = topDisplay.join(' ') + " =";
-			equals();
-		} else if(signCount <= 1) {
-			topDisplay.push(display.value);
-			topDisplay.push(op);
-			subDisplay.innerHTML = topDisplay.join(' ');
-		} else if(signCount >= 2) {
-			topDisplay.push(display.value);
-			topDisplay.push(op);
-			subDisplay.innerHTML = topDisplay.join(' ');
+		if(op !== "=") {
+			signCount += 1;
 		}
+			if(op === "=") {
+				topDisplay.push(display.value);
+				subDisplay.innerHTML = topDisplay.join(' ') + " =";
+				equals();
+			} else if(signCount <= 1) {
+				topDisplay.push(display.value);
+				topDisplay.push(op);
+				subDisplay.innerHTML = topDisplay.join(' ');
+			} else if(signCount >= 2) {
+				topDisplay.push(display.value);
+				topDisplay.push(op);
+				subDisplay.innerHTML = topDisplay.join(' ');
+			}
 	console.log(signCount);
 	mainDisplay = [''];
 }
 
-function equals() {				//no for...in loops. Stop asking;	Called from operators function when "=" button pressed
-	var i, a, b;
-	var args;
-	if(topDisplay.length > 1) {
-		for (i = 0; i < topDisplay.length; i++) {
-			switch(topDisplay[i]) {
-				case "*":
-					a = parseInt(topDisplay[i - 1]);
-					b = parseInt(topDisplay[i + 1]);
-						console.log(a, b);
-						multiply([a, b]);
-					topDisplay.splice(i - 1, 3, x);
-					break;
-				case "/":
-					a = parseInt(topDisplay[i - 1]);
-					b = parseInt(topDisplay[i + 1]);
-						console.log(a, b);
-						divide([a, b]);
-					topDisplay.splice(i - 1, 3, x);
-					break;
-				case "+":
-					a = Number(topDisplay[i - 1]);
-					b = Number(topDisplay[i + 1]);
-						add([a, b]);
-						console.log(x);
-						console.log(a, b);
-					topDisplay.splice(i - 1, 3, x);
-						break;
-				case "-":
-					a = parseInt(topDisplay[i - 1]);
-					b = parseInt(topDisplay[i + 1]);
-						console.log(a, b);
-						subtract([a, b]);
-					topDisplay.splice(i - 1, 3, x);
-					break;
-				default:
-					"Error"
-					break;
+function equals() {			//no for...in loops. Stop asking;	Called from operators function when "=" button pressed
+	var i, j, a, b;
+	problem:
+	for (i = 0; i < topDisplay.length; i++) {
+		if(topDisplay.length === 1) {
+			display.value = x;
+			break problem;
+		} else {
+			(function() {
+				switch(topDisplay[i]) {
+					case "*":
+						a = Number(topDisplay[i - 1]);
+						b = Number(topDisplay[i + 1]);
+							console.log(a, b);
+							multiply.call(this, [a, b]);
+							topDisplay.splice(i - 1, 3, x);
+							return equals();
+					case "/":
+						a = Number(topDisplay[i - 1]);
+						b = Number(topDisplay[i + 1]);
+							console.log(a, b);
+							divide.call(this, [a, b]);
+							topDisplay.splice(i - 1, 3, x);
+							return equals();
+					case "+":
+						a = Number(topDisplay[i - 1]);
+						b = Number(topDisplay[i + 1]);
+							console.log(x);
+							console.log(a, b);
+							add.call(this, [a, b]);
+							topDisplay.splice(i - 1, 3, x);
+							return equals();
+					case "-":
+						a = Number(topDisplay[i - 1]);
+						b = Number(topDisplay[i + 1]);
+							console.log(a, b);
+							subtract.call(this, [a, -b]);
+							topDisplay.splice(i - 1, 3, x);
+							return equals();
+					default:
+						"Error";
+						console.log(i);
 				}
-			}
-		console.log(topDisplay);
-		console.log(i);
-		console.log(x);
+			}).call(topDisplay);
+		}	
 	}
+	console.log(topDisplay);
 };
 
 function erase() {
@@ -88,8 +91,9 @@ function erase() {
 		mainDisplay.pop([i]);
 		topDisplay = [];
 		display.value = mainDisplay;
-		subDisplay.innerHTML = "Hello again!";
 	}
+	subDisplay.innerHTML = "Hello again!";
+	display.value = "";
 };
 
 function add(numbers) {
@@ -98,7 +102,6 @@ function add(numbers) {
 		x += numbers[i];
 	};
 	console.log(x);
-	display.value = x;
 	return x;
 }
 
@@ -108,7 +111,6 @@ function subtract(numbers) {
 		x += numbers[i];
 	};
 	console.log(x);
-	display.value = x;
 	return x;
 }
 
@@ -118,7 +120,6 @@ function multiply(numbers) {
 		x *= numbers[i];
 	};
 	console.log(x);
-	display.value = x;
 	return x;
 }
 
@@ -128,48 +129,31 @@ function divide(numbers) {
 		x /= numbers[i];
 	};
 	console.log(x);
-	display.value = x;
 	return x;
 }
 
 function randomMath() {									// Function used to test different operators and accuracy
-	let length = mainDisplay.length;
-	for(i = length; i > 0; i--) {  	
-		mainDisplay.pop([i]);
-		topDisplay = [];								// permanently resets display
-		display.value = mainDisplay;
-		subDisplay.innerHTML = "Hello again!";
-	}
+	erase.call();
+
 	let a = Math.floor(Math.random() * 100);
 	let b = Math.floor(Math.random() * 100);
 	let op = ['+', '-', '*', '/'];
 	let randomOp = op[Math.floor(op.length * Math.random())];
 	let final = a + randomOp + b;
-		subDisplay.innerHTML = a + " " + randomOp + " " + b;
-	if(randomOp === '+') {
-		return add([a, b]);
-	} else if(randomOp === '-') {
-		return subtract([a, -b]);
-	} else if(randomOp === '*') {
-		return multiply([a, b]);
-	} else if (randomOp === '/') {
-		return divide([a, b]);
-	}
+	console.log(final);
+	subDisplay.innerHTML = a + " " + randomOp + " " + b + " =";
+		if(randomOp === '+') {
+			add.call(this, [a, b]);
+		} else if(randomOp === '-') {
+			subtract.call(this, [a, -b]);
+		} else if(randomOp === '*') {
+			multiply.call(this, [a, b]);
+		} else if (randomOp === '/') {
+			divide.call(this, [a, b]);
+		}
+	display.value = x;
 }
 
 /*
-let sign = {
-			'+': function(num1, num2) {return num1 + num2},
-			'-': function(num1, num2) {return num1 + num2},
-			'*': function(num1, num2) {return num1 + num2},
-			'/': function(num1, num2) {return num1 + num2}
-		};
-
-
-let sign = function() {
-			for(i = 1; i < topDisplay.length; i++) {
-
-			}
-		}
 
 */

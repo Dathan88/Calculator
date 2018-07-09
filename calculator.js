@@ -1,97 +1,84 @@
 const display = document.getElementById('display');
 const subDisplay = document.getElementById('subDisplay');
-const myOp = document.getElementById('signs');
+const mySign = document.getElementById('sign');
 const myNumber = document.getElementById('number');
 var x;
-var signCount = 0;
-var topDisplay = [];
-var mainDisplay = [];
+var subArray = [];
+var displayArray = [];
 
 function myNumbers(a) {
 	let number = event.target.value;
-		mainDisplay.push(number);
-		display.value = mainDisplay.join('');
+		displayArray.push(number);
+		display.value = displayArray.join('');
 	console.log(display.value);
 }
 
-function operators(b) {
+function signs(b) {
 	let op = event.target.value;
-		if(op !== "=") {
-			signCount += 1;
-		}
-			if(op === "=") {
-				topDisplay.push(display.value);
-				subDisplay.innerHTML = topDisplay.join(' ') + " =";
-				equals();
-			} else if(signCount <= 1) {
-				topDisplay.push(display.value);
-				topDisplay.push(op);
-				subDisplay.innerHTML = topDisplay.join(' ');
-			} else if(signCount >= 2) {
-				topDisplay.push(display.value);
-				topDisplay.push(op);
-				subDisplay.innerHTML = topDisplay.join(' ');
-			}
-	console.log(signCount);
-	mainDisplay = [''];
+	console.log(subArray);
+	console.log(displayArray);
+	if(op === "=") {
+		subArray.push(display.value);
+		subDisplay.innerHTML = subArray.join(' ') + " =";
+		operate();
+	} else {
+		subArray.push(display.value);
+		subArray.push(op);
+		subDisplay.innerHTML = subArray.join(' ');
+	}
+	displayArray = [''];
 }
 
-function equals() {			//no for...in loops. Stop asking;	Called from operators function when "=" button pressed
-	var i, j, a, b;
+function operate() {			//no for...in loops. Stop asking;	Called from operators function when "=" button pressed
+	var i, a, b;
+
 	problem:
-	for (i = 0; i < topDisplay.length; i++) {
-		if(topDisplay.length === 1) {
+	for (i = 0; i < subArray.length; i++) {
+		if(subArray.length === 1) {
 			display.value = x;
+			displayArray = [];
+			subArray = [];
 			break problem;
 		} else {
 			(function() {
-				switch(topDisplay[i]) {
+				switch(subArray[i]) {
 					case "*":
-						a = Number(topDisplay[i - 1]);
-						b = Number(topDisplay[i + 1]);
+						a = Number(subArray[i - 1]);
+						b = Number(subArray[i + 1]);
 							console.log(a, b);
 							multiply.call(this, [a, b]);
-							topDisplay.splice(i - 1, 3, x);
-							return equals();
+							subArray.splice(i - 1, 3, x);
+							return operate();
 					case "/":
-						a = Number(topDisplay[i - 1]);
-						b = Number(topDisplay[i + 1]);
+						a = Number(subArray[i - 1]);
+						b = Number(subArray[i + 1]);
 							console.log(a, b);
 							divide.call(this, [a, b]);
-							topDisplay.splice(i - 1, 3, x);
-							return equals();
+							subArray.splice(i - 1, 3, x);
+							return operate();
 					case "+":
-						a = Number(topDisplay[i - 1]);
-						b = Number(topDisplay[i + 1]);
-							console.log(x);
+						a = Number(subArray[i - 1]);
+						b = Number(subArray[i + 1]);
 							console.log(a, b);
 							add.call(this, [a, b]);
-							topDisplay.splice(i - 1, 3, x);
-							return equals();
+							subArray.splice(i - 1, 3, x);
+							return operate();
 					case "-":
-						a = Number(topDisplay[i - 1]);
-						b = Number(topDisplay[i + 1]);
+						a = Number(subArray[i - 1]);
+						b = Number(subArray[i + 1]);
 							console.log(a, b);
 							subtract.call(this, [a, -b]);
-							topDisplay.splice(i - 1, 3, x);
-							return equals();
-					default:
-						"Error";
-						console.log(i);
+							subArray.splice(i - 1, 3, x);
+							return operate();
 				}
-			}).call(topDisplay);
+			}).call(subArray);
 		}	
 	}
-	console.log(topDisplay);
 };
 
 function erase() {
-	let length = mainDisplay.length;
-	for(i = length; i > 0; i--) {  			// permanently resets display
-		mainDisplay.pop([i]);
-		topDisplay = [];
-		display.value = mainDisplay;
-	}
+	displayArray = [];
+	subArray = [];
 	subDisplay.innerHTML = "Hello again!";
 	display.value = "";
 };
@@ -128,8 +115,9 @@ function divide(numbers) {
 	for (i = 0; i < numbers.length; i++) {
 		x /= numbers[i];
 	};
+	console.log(numbers);
 	console.log(x);
-	return x;
+	return x ;
 }
 
 function randomMath() {									// Function used to test different operators and accuracy

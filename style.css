@@ -6,49 +6,52 @@
 }
 
 .container {
-	display: table;
+	position: relative;
 	border: 1px solid black;
-	padding: 10px 10px 10px 10px;
-	width: 300px;
-	height:300px;
+	padding: 3px 3px 3px 3px;
+	width: 375px;
+	height: 225px;
 	margin: auto;
-	position: static;
+	display: table;
 	background: linear-gradient(135deg,	rgba(149,149,149,1) 0%,	rgba(13,13,13,1) 46%,	rgba(1,1,1,1) 50%,	rgba(10,10,10,1) 53%,	rgba(78,78,78,1) 76%,	rgba(56,56,56,1) 87%,	rgba(27,27,27,1) 100%);
 }
 
 form {
+	position: relative;
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
-	padding: 1px;
 }
 
 #topDisplay {
-	padding: 5px;
-	color: white;
+	width: 60%;
+	color: lightgrey;
 	margin: auto;
 }
 
 #display {
+	height: 25px;
 	width: 60%;
 	box-sizing: border-box;
 	border: 2px solid black;
 	border-radius: 4px;
 	font-size: 16px;
-	text-align: right;
+	text-align: center;
 }
 
-#numberPad {
-	margin:auto;
-	padding: 5px 5px;
-	width: 50%;
+#keyboard {
+	position: relative;
+	margin: auto;
+	padding: 0px 0px 0px 0px;
+	display: inline-block;
 }
 
 .buttons {
+	padding: 5px 5px;
 	color: white;
 	background-color: black;
-	border: none;
-	border-radius: 4px;
+	border: solid 1px darkgrey;
+	float: left;
 }
 
 .buttons:hover {
@@ -59,25 +62,43 @@ form {
 	border-radius: 4px;
 	box-shadow: 3px 3px 20px ivory;
 	transition-duration: 0.3s;
+	transform: rotate(360deg);
+
 }
 
 .buttons:active {
+	color: white;
 	background-color: black;
 	transform: translateY(4px);
 }
 
-#clear {
-	color: black;
-	text-shadow: 0 0 5px white, 0 0 5px white;
-	background-color: red;
-	border: none;
-	font-weight: 800;
+.buttons:focus {
+	outline: 0;
 }
 
 #rndm {
 	color: black;
+	font-weight: 800;
 	text-shadow: 0 0 5px white, 0 0 5px white;
 	background: linear-gradient(to left, red, orangered, chartreuse, aqua, blue, midnightblue);
 	border: none;
+}
+
+#clear {
+	color: black;
 	font-weight: 800;
+	text-shadow: 0 0 5px white, 0 0 5px white;
+	background-color: red;
+	border: none;
+}
+
+#logo {
+	background: url("Dammitdathan.jpg") no-repeat center;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	z-index: -1;
+	width: 250px;
+	height: 150px;
+	border: dotted 1px lightgrey;
 }

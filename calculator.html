@@ -9,40 +9,35 @@
 
 <div class="container">
 	<form id="myForm" autocomplete="off">
-		<p id='topDisplay'>Hello</p>
+		<p id='topDisplay'>-Hello-</p>
 		<input id="display" type="display" value="">
-					<br><br>
-		<div class="numberPad">		
-			<button class="buttons" id="number" type="button" value="1" onclick="myNumbers()">1</button>
-			<button class="buttons" id="number" type="button" value="2" onclick="myNumbers()">2</button>
-			<button class="buttons" id="number" type="button" value="3" onclick="myNumbers()">3</button>
-			<button class="buttons" id="number" type="button" value="4" onclick="myNumbers()">4</button>
-			<button class="buttons" id="number" type="button" value="5" onclick="myNumbers()">5</button>
-		<br><br>
-			<button class="buttons" id="number" type="button" value="6" onclick="myNumbers()">6</button>
-			<button class="buttons" id="number" type="button" value="7" onclick="myNumbers()">7</button>
-			<button class="buttons" id="number" type="button" value="8" onclick="myNumbers()">8</button>
-			<button class="buttons" id="number" type="button" value="9" onclick="myNumbers()">9</button>
-			<button class="buttons" id="number" type="button" value="0" onclick="myNumbers()">0</button>
-		</div>
-		<br>
-		<div id="mySigns">
-			<button class="buttons" id="sign" type="button" value="+" onclick="signs()">+</button>
-			<button class="buttons" id="sign" type="button" value="-" onclick="signs()">-</button>
-			<button class="buttons" id="sign" type="button" value="*" onclick="signs()">*</button>
-			<button class="buttons" id="sign" type="button" value="/" onclick="signs()">/</button>
-			<button class="buttons" id="sign" type="button" value="=" onclick="signs()">=</button>
-		</div>
-		<br>
-		<div id="extra">
-			<button class="buttons" id="rndm" type="button" value="Random" onclick="randomMath()">Random</button>
-			<button class="buttons" id="clear" type="button" value="C" onclick="erase()">C</button>
-		</div>
+			<br>
+			<div id="keyboard">
+				<input class="buttons" id="number" type="button" value="1" onclick="myNumbers()">
+				<input class="buttons" id="number" type="button" value="2" onclick="myNumbers()">
+				<input class="buttons" id="number" type="button" value="3" onclick="myNumbers()">
+				<input class="buttons" id="number" type="button" value="4" onclick="myNumbers()">
+				<input class="buttons" id="number" type="button" value="5" onclick="myNumbers()">
+			<br>
+				<input class="buttons" id="number" type="button" value="6" onclick="myNumbers()">
+				<input class="buttons" id="number" type="button" value="7" onclick="myNumbers()">
+				<input class="buttons" id="number" type="button" value="8" onclick="myNumbers()">
+				<input class="buttons" id="number" type="button" value="9" onclick="myNumbers()">
+				<input class="buttons" id="number" type="button" value="0" onclick="myNumbers()">
+			<br>
+				<input class="buttons" id="sign" type="button" value="+" onclick="signs()">
+				<input class="buttons" id="sign" type="button" value="-" onclick="signs()">
+				<input class="buttons" id="sign" type="button" value="*" onclick="signs()">
+				<input class="buttons" id="sign" type="button" value="/" onclick="signs()">
+				<input class="buttons" id="sign" type="button" value="=" onclick="signs()">
+			<br>
+				<input class="buttons" id="rndm" type="button" value="Random" onclick="randomMath()">
+				<input class="buttons" id="clear" type="button" value="C" onclick="erase()">
+			</div>
 	</form>
 </div>
-<br><br>
 
-<img src="C:\Users\Dathan\Coding_Projects/Dammitdathan.jpg" alt="DammitDathan" style="width: 250px; height: 150px;">
+<div id="logo" ></div>
 
 </body>
 <script src="calculator.js"></script>

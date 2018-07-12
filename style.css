@@ -6,52 +6,75 @@
 }
 
 .container {
-	position: relative;
+	position: absolute;
+	top: 0;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: auto;
 	border: 1px solid black;
 	padding: 3px 3px 3px 3px;
-	width: 375px;
-	height: 225px;
-	margin: auto;
-	display: table;
-	background: linear-gradient(135deg,	rgba(149,149,149,1) 0%,	rgba(13,13,13,1) 46%,	rgba(1,1,1,1) 50%,	rgba(10,10,10,1) 53%,	rgba(78,78,78,1) 76%,	rgba(56,56,56,1) 87%,	rgba(27,27,27,1) 100%);
+	width: 500px;
+	height: 400px;
+	background: linear-gradient(135deg, rgba(149,149,149,1) 0%,	rgba(13,13,13,1) 46%,	rgba(1,1,1,1) 50%,	rgba(10,10,10,1) 53%,	rgba(78,78,78,1) 76%,	rgba(56,56,56,1) 87%,	rgba(27,27,27,1) 100%);
 }
 
 form {
 	position: relative;
 	display: table-cell;
+	width: 80%;
 	text-align: center;
 	vertical-align: middle;
 }
 
 #topDisplay {
-	width: 60%;
+	width: 80%;
+	height: 30px;
 	color: lightgrey;
-	margin: auto;
+	padding-top: 3px;
+	margin: 5px auto 0px auto;
+}
+
+#topDisplay:active {
+	text-align: right;
+}
+
+#topDisplay:active:after {
+	color: grey;
+	text-shadow: 2px 2px 2px white;
+	text-align: right;
 }
 
 #display {
-	height: 25px;
-	width: 60%;
-	box-sizing: border-box;
-	border: 2px solid black;
-	border-radius: 4px;
+	height: 30px;
+	width: 80%;
+	margin: 0px -4px 2px auto;
+	padding: 0px;
+	border: 1px solid black;
 	font-size: 16px;
 	text-align: center;
 }
 
 #keyboard {
 	position: relative;
-	margin: auto;
-	padding: 0px 0px 0px 0px;
-	display: inline-block;
+	margin: auto auto auto auto;
+	width: 83%;
+	height: 300px;
+	padding: 0px;
+	display: table;
 }
 
 .buttons {
-	padding: 5px 5px;
 	color: white;
 	background-color: black;
 	border: solid 1px darkgrey;
-	float: left;
+	width: 19%;
+	height: 24%;
+	margin: 1px;
 }
 
 .buttons:hover {
@@ -62,8 +85,6 @@ form {
 	border-radius: 4px;
 	box-shadow: 3px 3px 20px ivory;
 	transition-duration: 0.3s;
-	transform: rotate(360deg);
-
 }
 
 .buttons:active {
@@ -81,7 +102,8 @@ form {
 	font-weight: 800;
 	text-shadow: 0 0 5px white, 0 0 5px white;
 	background: linear-gradient(to left, red, orangered, chartreuse, aqua, blue, midnightblue);
-	border: none;
+	border: 1px solid black;
+	width: 49%;
 }
 
 #clear {
@@ -89,7 +111,8 @@ form {
 	font-weight: 800;
 	text-shadow: 0 0 5px white, 0 0 5px white;
 	background-color: red;
-	border: none;
+	border: 1px solid black;
+	width: 49%;
 }
 
 #logo {

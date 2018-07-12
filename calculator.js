@@ -7,17 +7,20 @@ var signCount = 0;
 var topDisplayArray = [];
 var displayArray = [];
 
-function myNumbers(a) {						//pushes number button values to arrays to be displayed
+//pushes number button values to arrays to be displayed
+function myNumbers(a) {						
 	let number = event.target.value;
 		displayArray.push(number);
 		display.value = displayArray.join('');
 	console.log(display.value);
 }
 
-function signs(b) {							//pushes numbers and operator pressed into top display and calls equals function when button is pressed
+//pushes numbers and operator pressed into top display and calls operate function when = is pressed
+function signs(b) {							
 	let op = event.target.value;
 	if(op !== "=" ) {
 		signCount += 1;
+		topDisplay.setAttribute('style', 'text-align: center;');
 		console.log(signCount);
 	}
 		if(op === "=" && signCount === 0) {
@@ -27,7 +30,7 @@ function signs(b) {							//pushes numbers and operator pressed into top display
 			display.value = "Try again!";
 		} else if(op === "=" && signCount >= 1) {
 			topDisplayArray.push(display.value);
-			topDisplay.innerHTML = topDisplayArray.join(' ');
+			topDisplay.innerHTML = topDisplayArray.join(' ') + " =";
 			operate();
 		} else {
 			topDisplayArray.push(display.value);
@@ -39,7 +42,8 @@ function signs(b) {							//pushes numbers and operator pressed into top display
 	console.log(displayArray);
 }
 
-function operate() {						//Called from operators function when "=" button pressed; calls math functions depending on operators in arr
+//Called from signs function when "=" button pressed; calls math functions
+function operate() {
 	let i, a, b;
 problem:
 	for (i = 0; i < topDisplayArray.length; i++) {
@@ -48,6 +52,7 @@ problem:
 			display.value = Math.round(x * 1000) / 1000;
 			displayArray = [];
 			topDisplayArray = [];
+			topDisplay.setAttribute('style', 'text-align: right;');
 			break problem;
 		} else {
 			(function() {
@@ -86,10 +91,12 @@ problem:
 	}
 };
 
+//clears displays and arrays
 function erase() {
+	topDisplay.setAttribute('style', 'text-align: center;');
 	displayArray = [];
 	topDisplayArray = [];
-	topDisplay.innerHTML = "Hello again!";
+	topDisplay.innerHTML = "";
 	display.value = "";
 };
 
@@ -121,7 +128,8 @@ function divide(numbers) {
 	return x;
 }
 
-function randomMath() {									// Function used to test different operators and accuracy
+// Function used to test different operators and accuracy
+function randomMath() {
 		erase.call();
 	let a = Math.floor(Math.random() * 100);
 	let b = Math.floor(Math.random() * 100);
@@ -138,9 +146,6 @@ function randomMath() {									// Function used to test different operators and
 		} else if (randomOp === '/') {
 			divide.call(this, [a, b]);
 		}
-	display.value = x;
+	display.value = Math.round(x * 1000) / 1000;
+	topDisplay.setAttribute('style', 'text-align: right;');
 }
-
-/*
-
-*/

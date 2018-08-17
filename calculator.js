@@ -8,7 +8,7 @@ var topDisplayArray = [];
 var displayArray = [];
 
 //pushes number button values to arrays to be displayed
-function myNumbers(a) {						
+function myNumbers(a) {
 	let number = event.target.value;
 		displayArray.push(number);
 		display.value = displayArray.join('');
@@ -16,7 +16,7 @@ function myNumbers(a) {
 }
 
 //pushes numbers and operator pressed into top display and calls operate function when = is pressed
-function signs(b) {							
+function signs(b) {
 	let op = event.target.value;
 	if(op !== "=" ) {
 		signCount += 1;

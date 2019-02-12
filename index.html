@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style/style.css">
 	<title>Calculator</title>
 </head>
-<body>
-<h1 id="title">Calculator</h1>
 
-<div class="container">
-	<form id="myForm" autocomplete="off">
-		<p id='topDisplay'></p>
-		<input id="display" type="display" value="">
+<body>
+	<h1 id="title">Calculator</h1>
+
+	<div class="container">
+		<form id="myForm" autocomplete="off">
+			<p id='topDisplay'></p>
+			<input id="display" type="display" value="">
 			<br>
 			<div id="keyboard">
 				<input class="buttons" id="number" type="button" value="1" onclick="myNumbers()">
@@ -18,27 +20,28 @@
 				<input class="buttons" id="number" type="button" value="3" onclick="myNumbers()">
 				<input class="buttons" id="number" type="button" value="4" onclick="myNumbers()">
 				<input class="buttons" id="number" type="button" value="5" onclick="myNumbers()">
-			<br>
+				<br>
 				<input class="buttons" id="number" type="button" value="6" onclick="myNumbers()">
 				<input class="buttons" id="number" type="button" value="7" onclick="myNumbers()">
 				<input class="buttons" id="number" type="button" value="8" onclick="myNumbers()">
 				<input class="buttons" id="number" type="button" value="9" onclick="myNumbers()">
 				<input class="buttons" id="number" type="button" value="0" onclick="myNumbers()">
-			<br>
+				<br>
 				<input class="buttons" id="sign" type="button" value="+" onclick="signs()">
 				<input class="buttons" id="sign" type="button" value="-" onclick="signs()">
 				<input class="buttons" id="sign" type="button" value="*" onclick="signs()">
 				<input class="buttons" id="sign" type="button" value="/" onclick="signs()">
 				<input class="buttons" id="sign" type="button" value="=" onclick="signs()">
-			<br>
+				<br>
 				<input class="buttons" id="rndm" type="button" value="Random" onclick="randomMath()">
 				<input class="buttons" id="clear" type="button" value="Clear" onclick="erase()">
 			</div>
-	</form>
-</div>
+		</form>
+	</div>
 
-<div id="logo" ></div>
+	<div id="logo"></div>
 
 </body>
-<script src="calculator.js"></script>
+<script src="js/calculator.js"></script>
+
 </html>

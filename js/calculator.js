@@ -9,15 +9,15 @@ var displayArray = [];
 
 //pushes number button values to arrays to be displayed
 function myNumbers(a) {
-	let number = event.target.value;
+	let number = a;
 	displayArray.push(number);
 	display.value = displayArray.join('');
-	console.log(display.value);
+	console.log(a);
 }
 
 //pushes numbers and operator pressed into top display and calls operate function when = is pressed
 function signs(b) {
-	let op = event.target.value;
+	let op = b;
 	if (op !== '=') {
 		signCount += 1;
 		console.log(signCount);

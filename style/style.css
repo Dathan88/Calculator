@@ -3,6 +3,10 @@ html {
 	font-size: 10px;
 }
 
+body {
+	background: #bbb;
+}
+
 #title {
 	text-align: center;
 	margin: 5rem auto 0;
@@ -25,6 +29,7 @@ html {
 		"clear clear equals equals";
 	margin: 1rem auto;
 	border: 1px solid black;
+	border-radius: 2rem;
 	box-shadow: 1rem 1rem 1.5rem black;
 	width: 40rem;
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#7d7e7d+0,0e0e0e+100;Black+3D */

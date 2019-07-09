@@ -123,24 +123,3 @@ function divide(numbers) {
 	x = a / b;
 	return x;
 }
-
-// Function used to test different operators and accuracy
-function randomMath() {
-	erase.call();
-	let a = Math.floor(Math.random() * 100);
-	let b = Math.floor(Math.random() * 100);
-	let op = ['+', '-', '*', '/'];
-	let randomOp = op[Math.floor(op.length * Math.random())];
-	let final = a + randomOp + b;
-	topDisplay.innerHTML = a + ' ' + randomOp + ' ' + b + ' =';
-	if (randomOp === '+') {
-		add.call(this, [a, b]);
-	} else if (randomOp === '-') {
-		subtract.call(this, [a, -b]);
-	} else if (randomOp === '*') {
-		multiply.call(this, [a, b]);
-	} else if (randomOp === '/') {
-		divide.call(this, [a, b]);
-	}
-	display.value = Math.round(x * 1000) / 1000;
-}
